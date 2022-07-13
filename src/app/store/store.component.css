@@ -1,0 +1,68 @@
+button {
+  margin-right: 5px;
+}
+
+div {
+  margin-bottom: 2em;
+}
+.sidenav {
+  height: 100%;
+  width: 160px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 20px;
+  z-index: 3;
+}
+.main {
+  margin-left: 160px;
+  padding: 50px 10px;
+  z-index: 1;
+}
+.pages {
+  margin-left: 160px;
+}
+.navbar {
+  margin-left: 160px;
+  padding: 0 10px;
+}
+div.pages {
+  text-align: center;
+}
+
+.navbar-brand {
+  font-size: 40px;
+}
+.card-text {
+  margin-left: 1em;
+}
+.card-outline-primary {
+  width: 50%;
+}
+.btn-primary {
+  margin-left: 34px;
+}
+.btn-block {
+  margin-bottom: 5%;
+  margin-left: 5%;
+  display: block;
+}
+.btn-success {
+  float: right;
+  margin: 1em;
+}
+.tag-pill {
+  float: right;
+}
+.offcanvas-title {
+  font-size: 30px;
+}
+footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(33, 117, 254, 0.69);
+  color: white;
+  text-align: center;
+  padding: 60px;
+}

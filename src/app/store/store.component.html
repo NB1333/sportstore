@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" rel="stylesheet">
+  <script crossorigin="anonymous"
+          integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js">
+  </script>
+  <link href="store.component.css" rel="stylesheet">
+</head>
+<body>
+<div class="navbar navbar-inverse bg-inverse">
+  <a class="navbar-brand">SPORTS STORE</a>
+  <cart-summary></cart-summary>
+</div>
+
+<div class="sidenav">
+  <button aria-controls="offcanvasExample" class="btn btn-primary" data-bs-target="#offcanvasExample" data-bs-toggle="offcanvas"
+          type="button">
+    Categories
+  </button>
+  <div aria-labelledby="offcanvasExampleLabel" class="offcanvas offcanvas-start" id="offcanvasExample" tabindex="-1">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasExampleLabel">Categories</h5>
+      <button aria-label="Close" class="btn-close" data-bs-dismiss="offcanvas" type="button"></button>
+    </div>
+    <div class="offcanvas-body">
+      <a (click)="changeCategory()" class="btn btn-block btn-outline-primary">
+        All categories
+      </a>
+      <a (click)="changeCategory(cat)" *ngFor="let cat of categories"
+              [class.active]="cat == selectedCategory" class="btn btn-outline-primary btn-block">
+        {{cat}}
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <div *ngFor="let product of products" class="card card-outline-primary">
+    <h4 class="card-header">
+      {{product.name}}
+      <span class="pull-xs-right tag tag-pill tag-primary">
+        {{product.price | currency:"USD":true:"2.2-2"}}
+      </span>
+    </h4>
+    <div class="card-text p-a-1">{{product.description}}
+      <button (click)="addProductToCart(product)"
+              class="btn btn-success btn-sm pull-xs-right">
+        Add To Cart
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="pages">
+  <div class="form-inline pull-xs-left m-r-1">
+    <select (change)="changePageSize($any($event.target).value)" [value]="productsPerPage"
+            class="form-control">
+      <option value="3">3 per Page</option>
+      <option value="4">4 per Page</option>
+      <option value="6">6 per Page</option>
+      <option value="8">8 per Page</option>
+    </select>
+  </div>
+  <div class="btn-group pull-xs-right">
+    <button (click)="changePage(page)" *counter="let page of pageCount"
+            [class.active]="page == selectedPage" class="btn btn-outline-primary">
+      {{page}}
+    </button>
+  </div>
+</div>
+
+
+<footer>
+  <p>Made by Nikita Bykov. 2022
+  </p>
+</footer>
+</body>
+</html>
